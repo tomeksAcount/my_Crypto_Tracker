@@ -1,0 +1,10 @@
+# Copy this file to .env and fill in the details from your cloud database's dashboard
+# (e.g. Aiven, AWS RDS, Azure Database for MySQL, DigitalOcean, Railway).
+DB_HOST=mysql-287bb16f-passmail-2c04.g.aivencloud.com
+DB_PORT=16870
+DB_USER=avnadmin
+DB_PASSWORD=AVNS_AziraPrEL_K56idD4NS
+DB_NAME=defaultdb
+# Path to the provider's CA certificate (download it from the dashboard).
+# Leave empty only if your provider doesn't require SSL.
+DB_SSL_CA=ca.pem
