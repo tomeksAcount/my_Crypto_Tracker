@@ -195,6 +195,22 @@ def profsearch(profits1,names1):
     return "Coin not found."
 
 
+def price_comparison(coins,current_prices,target):
+    """Price per coin at each purchase of the target coin vs the price today."""
+    today = current_prices.get(target, {}).get("usd")
+    lines = []
+    for coin in coins:
+        if coin.cryptoName.lower() == target:
+            line = f"{coin.date}: bought at ${coin.price_at_purchase:,.2f} per coin"
+            if today is not None:
+                line += f", today ${today:,.2f}"
+                if coin.price_at_purchase:
+                    change = (today - coin.price_at_purchase) / coin.price_at_purchase * 100
+                    line += f" ({change:+.1f}%)"
+            lines.append(line)
+    return "\n".join(lines)
+
+
 def coinbinarysearch(coins):
     low = 0
     high = len(coins) - 1
@@ -351,6 +367,12 @@ def menudisplay(coins):
             names1 = sorted(profits)  # binary search needs the names in alphabetical order
             profits1 = [profits[name] for name in names1]
             print(profsearch(profits1,names1))
+
+            answer = input("Do you want to see the price you paid per coin vs today's price? (y/n): ").strip().lower()
+            if answer == "y":
+                target = input("Enter the name of the coin: ").strip().lower()
+                comparison = price_comparison(coins,current_prices,target)
+                print(comparison if comparison else "Coin not found.")
 
         elif choice == "4":
             total_value = value(coins)
