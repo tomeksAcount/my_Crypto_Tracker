@@ -43,13 +43,13 @@ The Python app reads and writes purchases in a MySQL table called `crypto`, stor
 
 UML use case diagram from the original project design.
 
-![Use case diagram](docs/images/use-case-diagram.png)
+![Use case diagram](use-case-diagram.png)
 
 ## UI design
 
 Original wireframes for the text menu and its input and output screens. The final menu differs from these in order and wording.
 
-![UI design wireframes](docs/images/ui-design.png)
+![UI design wireframes](ui-design.png)
 
 ## Database design
 
