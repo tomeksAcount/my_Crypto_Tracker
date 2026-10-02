@@ -49,7 +49,7 @@ UML use case diagram from the original project design.
 
 Original wireframes for the text menu and its input and output screens. The final menu differs from these in order and wording.
 
-![UI design wireframes](docs/images/ui-design.png)
+![UI design wireframes](ui-design.png)
 
 ## Database design
 
