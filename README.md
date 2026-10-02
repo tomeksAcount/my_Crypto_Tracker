@@ -43,7 +43,7 @@ The Python app reads and writes purchases in a MySQL table called `crypto`, stor
 
 UML use case diagram from the original project design.
 
-![Use case diagram](docs/images/use-case-diagram.png)
+![Use case diagram](use-case-diagram.png)
 
 ## UI design
 
