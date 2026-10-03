@@ -5,6 +5,9 @@ from datetime import datetime
 
 from db import get_connection
 
+API_KEY = os.getenv("CG-H52ZY6zyakAqceRFYGfUy9y9")  # reads the key from .env
+API_HEADERS = {"x-cg-demo-api-key": API_KEY} if API_KEY else {}
+
 
 @dataclass
 class cryptoRecord:
