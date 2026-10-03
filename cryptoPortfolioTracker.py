@@ -35,7 +35,7 @@ coins = get_data()
 def gettingPrice(coins, crypto_id, date):
     url = f'https://api.coingecko.com/api/v3/coins/{crypto_id}/history?date={date}&localization=false'
     try:
-        response = requests.get(url, timeout=10)
+        response = requests.get(url, headers=API_HEADERS, timeout=10)
     except requests.RequestException:
         return None
     if response.status_code != 200:
