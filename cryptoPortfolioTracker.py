@@ -109,12 +109,12 @@ def calculate_crypto_distribution(coins,total_value):
             crypto_percentages[name] = 0.0
     else:
         for name, value in crypto_values.items():
-            crypto_percentages[name] = (value / total_value) * 100
+            crypto_percentages[name] = round((value / total_value) * 100, 2)
   
         total_percentage = total_percentage + crypto_percentages[name]
         
     
-    return round(crypto_percentages, 2)
+    return crypto_percentages
 
 
 def fetch_current_prices(crypto_names):
