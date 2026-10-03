@@ -193,7 +193,7 @@ def profsearch(profits1,names1):
         midcoin = names1[mid].lower()# Convert to lowercase for case-insensitive search
 
         if midcoin == target:
-            return f"you have made a profit of {profits1[mid]} on coin {midcoin}"  # Found the coin, return date and amount
+            return f"you have made a profit of {profits1[mid]:,.2f} on coin {midcoin}"  # Found the coin, return date and amount
         elif midcoin.lower() > target:
             high = mid - 1  
         else:
@@ -234,7 +234,7 @@ def coinbinarysearch(coins):
             purchases = []
             i = first
             while i < len(coins) and coins[i].cryptoName.lower() == target:
-                purchases.append(f"you bought {coins[i].amount} of {target} on the {coins[i].date}")
+                purchases.append(f"you bought {coins[i].amount:,} of {target} on the {coins[i].date}")
                 i += 1
             return "\n".join(purchases)
         elif mid_coin > target:
@@ -365,7 +365,7 @@ def menudisplay(coins):
                 current_prices.update(fetch_current_prices([Crypto]))
 
         elif choice == "2":
-            print(value(coins))
+            print(f"${value(coins):,.2f}")
             back_to_menu()
 
         elif choice == "3":
@@ -389,7 +389,7 @@ def menudisplay(coins):
             profits = calculate_profits(coins,current_prices,crypto_names)
             profits1,names1 = bubblesort(*dis(profits))
             for i in range(len(names1)):
-                print(f"{names1[i]} has made a profit of ${round(profits1[i],2)}")
+                print(f"{names1[i]} has made a profit of ${profits1[i]:,.2f}")
 
         elif choice == "6":
             for n in range(len(coins)):
