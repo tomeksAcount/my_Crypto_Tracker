@@ -1,3 +1,5 @@
+import os
+
 import requests
 
 from dataclasses import dataclass
@@ -119,7 +121,8 @@ def fetch_current_prices(crypto_names):
     
     ids = ",".join(crypto_names) 
     url = f"https://api.coingecko.com/api/v3/simple/price?ids={ids}&vs_currencies=usd"
-    response = requests.get(url)
+    response = requests.get(url, headers=API_HEADERS)
+    
     return response.json() if response.status_code == 200 else {}
 
 crypto_names = list(set(crypto.cryptoName for crypto in coins))
@@ -272,7 +275,7 @@ def orderprice(coins,current_prices,crypto_names):
 
 def get_max_supply(crypto_name):
     url = f"https://api.coingecko.com/api/v3/coins/{crypto_name}"   
-    response = requests.get(url)
+    response = requests.get(url, haeaders=API_HEADERS)
     if response.status_code == 200:
         data = response.json()
         max_suply = data.get("market_data",{}).get("max_supply",None)
@@ -338,7 +341,7 @@ def menudisplay(coins):
                 "sparkline": False
             }
             
-            response = requests.get(url, params=params)
+            response = requests.get(url, params=params, headers=API_HEADERS)
             if response.status_code == 200:
                 data = response.json()
                 for idx, coin in enumerate(data, start=1):
